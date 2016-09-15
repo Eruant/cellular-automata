@@ -1,16 +1,21 @@
+'use strict'
+
 const state = require('./state')
-const rules = require('./rules')
+const rules = require('./rules')(57)
+const applyRules = require('./applyRules')
 
 const display = (data) => data
   .map(row => row.join(''))
   .join('\n')
-  .replace(/0/g, ' ')
-  .replace(/1/g, '#')
 
 const data = []
 
-// create the first row
-data.push(state(20))
+const size = 21
+
+data.push(state(size * 2))
+
+for (let i = 0; i < size; i++) {
+  data.push(applyRules(data[data.length - 1], rules))
+}
 
 console.log(display(data))
-console.log(rules(72))

@@ -14,7 +14,7 @@ module.exports = (n) => {
       left: parseInt(state[0], 10),
       self: parseInt(state[1], 10),
       right: parseInt(state[2], 10),
-      target: parseInt(rule(n)[i], 10)
+      target: Math.abs(parseInt(rule(n)[i], 10) - 1)
     }
   })
 }
