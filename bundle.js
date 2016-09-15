@@ -10,7 +10,7 @@ module.exports = (row, rules) => {
 
     for (let j = 0, len = rules.length; j < len; j++) {
       let rule = rules[j]
-      if (rule.left.toString() === left.toString() && rule.self.toString() === cell.toString() && rule.right.toString() === right.toString()) {
+      if (rule.left === left && rule.self === cell && rule.right === right) {
         nextRow.push(rule.target)
       }
     }
